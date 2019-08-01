@@ -1,5 +1,14 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-<h1>lasjkljsd</h1>
+<div class="card">
+    <div class="card-header">Student Information Form</div>
+    <div class="card-body">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ forms.as_p }}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
 {% endblock %}
