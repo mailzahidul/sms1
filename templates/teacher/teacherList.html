@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">Teacher's List</div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID No</th>
+                <th scope="col">Teacher Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Department</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in list %}
+            <tr>
+                <th scope="row">{{ i.id }}</th>
+                <td>{{ i.name}}</td>
+                <td>{{ i.email }}</td>
+                <td>{{ i.department }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+{% endblock %}
