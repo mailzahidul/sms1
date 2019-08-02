@@ -21,4 +21,15 @@ def studentlist(request):
 
 def classInfo(request, class_name):
     stu_list = StudentInfo.objects.filter(class_name__class_name=class_name)
-    return render(request, 'student/classStudents.html', {'list': stu_list})
+    return render(request, 'student/classStudents.html', {'list': stu_list, 'class_n': class_name})
+
+
+def studentEdit(request, student_id):
+    std_obj = StudentInfo.objects.get(id=student_id)
+    forms = StudentInfoForm(instance=std_obj)
+    print("Request: ",forms)
+    if request.method == 'POST':
+        if forms.is_valid():
+            forms.save()
+        return redirect('student-list')
+    return render(request, 'student/studentEdit.html', {'forms': forms})
