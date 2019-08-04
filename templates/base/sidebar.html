@@ -7,15 +7,29 @@
             </li>
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#">
+                    <i class="nav-icon icon-puzzle"></i>Students</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'create-student' %}">
+                            <i class="nav-icon icon-user"></i>Student Add</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'student-list' %}">
+                            <i class="nav-icon icon-list"></i>Student List</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
                     <i class="nav-icon icon-puzzle"></i>Teacher</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'create-teachers' %}">
-                            <i class="nav-icon icon-puzzle"></i>Teacher Add</a>
+                            <i class="nav-icon icon-user"></i>Teacher Add</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'teacher-list' %}">
-                            <i class="nav-icon icon-puzzle"></i>Teacher List</a>
+                            <i class="nav-icon icon-list"></i>Teacher List</a>
                     </li>
                 </ul>
             </li>
