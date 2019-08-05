@@ -36,7 +36,7 @@ from .models import CreateTeacher
 def createTeacher(request):
     forms = TeacherCreateF()
     if request.method == 'POST':
-        forms = TeacherCreateF(request.POST)
+        forms = TeacherCreateF(request.POST, request.FILES)
         if forms.is_valid():
             forms.save()
         return redirect('home')
@@ -48,3 +48,9 @@ def teacherList(request):
     tech_obj = CreateTeacher.objects.all()
     context = {'list': tech_obj}
     return render(request, 'teacher/teacherList.html', context)
+
+
+def teacherView(request, teacher_id):
+    tech_obj = CreateTeacher.objects.get(id=teacher_id)
+    context = {'teacher': tech_obj}
+    return render(request, 'teacher/teacherView.html', context)

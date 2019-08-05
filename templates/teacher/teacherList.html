@@ -17,8 +17,9 @@
             {% for i in list %}
             <tr>
                 <th scope="row">{{ i.id }}</th>
-                <td>{{ i.name}}</td>
+                <td><a href="{% url 'teacher-view' i.id %}"> {{ i.name}}</a></td>
                 <td>{{ i.email }}</td>
+                <td><img height="120px" width="80px" src="{{ i.photo.url }}" ></td>
                 <td>{{ i.department }}</td>
             </tr>
             {% endfor %}

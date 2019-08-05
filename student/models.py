@@ -1,4 +1,6 @@
 from django.db import models
+from teachers.models import CreateTeacher
+from department.models import DepartmentName
 
 
 # Create your models here.
@@ -24,12 +26,14 @@ class StudentInfo(models.Model):
     mother_name = models.CharField(max_length=100)
     class_name = models.ForeignKey(ClassInfo, on_delete=models.CASCADE)
     roll = models.IntegerField()
+    department =models.ForeignKey(DepartmentName,on_delete=models.CASCADE)
     email = models.EmailField()
     contact_1 = models.IntegerField()
     contact_2 = models.IntegerField()
-    shift = models.ForeignKey(ShiftInfo, on_delete=models.CASCADE)
-    photo = models.ImageField()
+    shift = models.ForeignKey(ShiftInfo, on_delete=models.CASCADE, default='Shift and Section')
+    photo = models.ImageField(upload_to='media/student')
     address = models.TextField()
+    reference_teacher = models.ForeignKey(CreateTeacher, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
